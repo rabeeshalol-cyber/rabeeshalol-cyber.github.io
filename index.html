@@ -3,53 +3,111 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>المهندس ربيع شلول | Rabie Shalool</title>
+    <title>المهندس ربيع شعلول | Rabie Shalool</title>
     <style>
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f4f4f9; color: #333; margin: 0; padding: 20px; line-height: 1.6; text-align: center; }
-        header { background: #24292e; color: white; padding: 40px 20px; border-radius: 10px; margin-bottom: 20px; }
-        h1 { margin: 0; font-size: 2.5em; }
-        .tagline { font-size: 1.2em; opacity: 0.9; }
-        .container { max-width: 800px; margin: auto; background: white; padding: 30px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
-        .section { margin-bottom: 30px; text-align: right; }
-        .section h2 { border-bottom: 2px solid #24292e; padding-bottom: 10px; color: #24292e; }
-        .project-card { background: #fafafa; border: 1px solid #ddd; padding: 15px; border-radius: 5px; margin-bottom: 10px; }
-        footer { margin-top: 50px; font-size: 0.9em; color: #777; }
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            margin: 0; 
+            padding: 20px; 
+            line-height: 1.6; 
+            text-align: center; 
+            /* هنا قمنا بربط الصورة التي رفعتها */
+            background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('bg.jpg'); 
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: #333;
+        }
+
+        header { color: white; padding: 60px 20px; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); }
+        h1 { margin: 0; font-size: 2.8em; }
+        .tagline { font-size: 1.3em; font-weight: 300; opacity: 0.9; }
+
+        .container { 
+            max-width: 850px; 
+            margin: auto; 
+            background: rgba(255, 255, 255, 0.95); 
+            padding: 35px; 
+            border-radius: 20px; 
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3); 
+            backdrop-filter: blur(10px);
+        }
+
+        .section { margin-bottom: 35px; text-align: right; }
+        .section h2 { 
+            border-right: 6px solid #24292e; 
+            padding-right: 15px; 
+            color: #24292e; 
+            font-size: 1.6em;
+        }
+
+        .project-card { 
+            background: #fff; 
+            border: 1px solid #eee; 
+            padding: 18px; 
+            border-radius: 12px; 
+            margin-bottom: 15px; 
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        
+        .download-btn {
+            display: inline-block;
+            margin-top: 12px;
+            padding: 8px 18px;
+            background-color: #0366d6;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: bold;
+            font-size: 0.9em;
+        }
+
+        footer { margin-top: 50px; font-size: 0.9em; color: white; padding-bottom: 30px; }
     </style>
 </head>
 <body>
 
     <header>
-        <h1>ربيع شلول</h1>
-        <p class="tagline">مهندس حاسوب وتحكم | Computer and Control Engineer</p>
+        <h1>ربيع شعلول</h1>
+        <p class="tagline">مهندس حاسوب وتحكم | جامعة صنعاء</p>
     </header>
 
     <div class="container">
         <div class="section">
             <h2>نبذة تعريفية</h2>
-            <p>أهلاً بك في موقعي الشخصي. أنا طالب في هندسة الحاسوب والتحكم بجامعة صنعاء، مهتم بالبرمجة، الدوائر الإلكترونية، والأنظمة المدمجة.</p>
+            <p>
+                أنا ربيع شلول، طالب في قسم هندسة الحاسوب والتحكم بجامعة صنعاء. 
+                أعمل على تطوير مهاراتي في البرمجة بـ ++C وتصميم الأنظمة المدمجة. 
+                هذا الموقع هو مساحتي الخاصة لتوثيق المشاريع والتقارير الهندسية التي أنجزتها.
+            </p>
         </div>
 
         <div class="section">
-            <h2>أبرز المشاريع والتقارير</h2>
+            <h2>المشاريع والتقارير</h2>
+            
             <div class="project-card">
-                <strong>مشروع Clap Switch:</strong> تصميم دائرة تحكم عبر الصوت باستخدام المتكاملة CD4017.
+                <strong>🔍 نظام كشف المعادن الحثي:</strong> 
+                تصميم هندسي يعتمد على المؤقت 555 وتحليل الترددات الكهرومغناطيسية للكشف عن المعادن بدقة عالية.
+                <br>
+                <a href="metal-detector.pdf" class="download-btn">📥 عرض التقرير (PDF)</a>
             </div>
+
             <div class="project-card">
-                <strong>مشروع كاشف المعادن:</strong> بناء نظام كشف معادن بسيط باستخدام المؤقت 555.
-            </div>
-            <div class="project-card">
-                <strong>برمجيات C++:</strong> مجموعة من التطبيقات البرمجية المتقدمة باستخدام مفاهيم OOP.
+                <strong>⚡ دائرة Clap Switch:</strong> 
+                تطبيق عملي باستخدام المتكاملة CD4017 للتحكم بالأجهزة عبر الصوت.
+                <br>
+                <a href="clap-switch.pdf" class="download-btn">📥 عرض التقرير (PDF)</a>
             </div>
         </div>
 
         <div class="section">
             <h2>التواصل</h2>
-            <p>يمكنك متابعة مشاريعي وتحديثاتي البرمجية مباشرة عبر حسابي على GitHub.</p>
+            <p>يمكنكم متابعة كافة مشاريعي البرمجية عبر حسابي هنا على GitHub.</p>
         </div>
     </div>
 
     <footer>
-        © 2026 جميع الحقوق محفوظة - البـ.مهندس.ـش ربـيـع شـعـلول
+        © 2026 جميع الحقوق محفوظة - المهندس ربيع شعلول
     </footer>
 
 </body>
