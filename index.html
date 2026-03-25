@@ -1,4 +1,4 @@
-شعلولCTYPE html>
+<!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
@@ -78,19 +78,35 @@
             animation: fadeInUp 1s ease 0.3s backwards;
         }
 
-        .section { margin-bottom: 50px; }
+        .section { margin-bottom: 60px; }
         
-        /* تنسيق الهدف الوظيفي المستوحى من الصورة */
+        .section-title {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .bio-text {
+            font-size: 1.15rem;
+            line-height: 1.9;
+            color: rgba(255, 255, 255, 0.9);
+            text-align: justify;
+        }
+
+        /* تنسيق الهدف الوظيفي في الأسفل */
         .objective-card {
             position: relative;
             text-align: center;
-            padding: 40px 20px;
-            background: rgba(0, 0, 0, 0.2);
+            padding: 45px 25px;
+            background: rgba(0, 0, 0, 0.25);
             border-radius: 20px;
             overflow: hidden;
+            border: 1px solid rgba(0, 210, 255, 0.1);
         }
 
-        /* علامات الاقتباس الكبيرة في الخلفية */
         .objective-card::before, .objective-card::after {
             content: "“";
             position: absolute;
@@ -113,11 +129,11 @@
         }
 
         .obj-main-text {
-            font-size: 1.8rem;
+            font-size: 1.7rem;
             color: #fff;
             font-weight: 500;
-            line-height: 1.4;
-            margin-bottom: 30px;
+            line-height: 1.5;
+            margin-bottom: 25px;
             position: relative;
             z-index: 1;
         }
@@ -145,9 +161,12 @@
             border-radius: 18px;
             padding: 25px;
             transition: 0.3s;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
 
-        .card:hover { transform: translateY(-10px); border-color: var(--primary-color); }
+        .card:hover { transform: translateY(-10px); border-color: var(--primary-color); background: rgba(255, 255, 255, 0.06); }
 
         .btn {
             display: inline-flex;
@@ -159,7 +178,7 @@
             color: #fff;
             text-decoration: none;
             font-weight: 500;
-            margin-top: 15px;
+            margin-top: 20px;
             transition: 0.3s;
         }
 
@@ -176,8 +195,10 @@
             border-radius: 12px;
             color: #fff;
             text-decoration: none;
-            margin-top: 10px;
+            transition: 0.3s;
+            border: 1px solid var(--glass-border);
         }
+        .contact-link:hover { background: var(--blue-gradient); border-color: transparent; }
 
         @keyframes fadeInDown { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; } }
         @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; } }
@@ -188,13 +209,47 @@
 
     <header>
         <div class="profile-container">
-            <img src="your-image.jpg" alt="ربيع شلول" class="profile-img">
+            <img src="your-image.jpg" alt="ربيع شعلول" class="profile-img">
         </div>
         <h1><span class="name-highlight">ربيع شعلول</span></h1>
     </header>
 
     <div class="main-container">
         
+        <div class="section">
+            <h2 class="section-title">👤 النبذة التعريفية</h2>
+            <div class="bio-text">
+                طالب هندسة حاسوب في جامعة صنعاء. يتمتع بأساسيات قوية في البرمجة بلغة Python و ++C وتصميم الأنظمة المدمجة، شغوف ببناء أنظمة فعالة واستكشاف التقنيات الناشئة مثل الذكاء الاصطناعي والأنظمة المدمجة والروبوتات وتحليل البيانات.
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">🚀 معرض المشاريع</h2>
+            <div class="project-grid">
+                <div class="card">
+                    <div>
+                        <h3>🔍 كاشف المعادن</h3>
+                        <p>مشروع هندسي يحلل الحث الكهرومغناطيسي باستخدام NE555 للكشف الدقيق عن المعادن.</p>
+                    </div>
+                    <a href="#" class="btn btn-blue">تحميل التقرير (PDF)</a>
+                </div>
+                <div class="card">
+                    <div>
+                        <h3>⚡ Clap Switch</h3>
+                        <p>نظام تحكم صوتي للأتمتة المنزلية يعتمد على المتكاملة CD4017 لتشغيل الأجهزة بالتصفيق.</p>
+                    </div>
+                    <a href="#" class="btn btn-blue">تحميل التقرير (PDF)</a>
+                </div>
+                <div class="card">
+                    <div>
+                        <h3>💻 برمجة OOP</h3>
+                        <p>مجموعة خوارزميات وأنظمة تم تطويرها باستخدام البرمجة كائنية التوجه لتعزيز الكفاءة.</p>
+                    </div>
+                    <a href="#" class="btn btn-green">تصفح الأكواد 📂</a>
+                </div>
+            </div>
+        </div>
+
         <div class="section">
             <div class="objective-card">
                 <div class="obj-title">الهدف الوظيفي</div>
@@ -207,33 +262,12 @@
             </div>
         </div>
 
-        <div class="section">
-            <h2 style="text-align: center; color: var(--primary-color);">{} معرض المشاريع</h2>
-            <div class="project-grid">
-                <div class="card">
-                    <h3>🔍 كاشف المعادن</h3>
-                    <p>مشروع هندسي يحلل الحث الكهرومغناطيسي باستخدام NE555 للكشف الدقيق.</p>
-                    <a href="#" class="btn btn-blue">تحميل التقرير (PDF)</a>
-                </div>
-                <div class="card">
-                    <h3>⚡ Clap Switch</h3>
-                    <p>نظام تحكم صوتي للأتمتة المنزلية يعتمد على المتكاملة CD4017.</p>
-                    <a href="#" class="btn btn-blue">تحميل التقرير (PDF)</a>
-                </div>
-                <div class="card">
-                    <h3>💻 برمجة OOP</h3>
-                    <p>مجموعة خوارزميات وأنظمة تم تطويرها لتعزيز الكفاءة البرمجية.</p>
-                    <a href="#" class="btn btn-green">تصفح الأكواد 📂</a>
-                </div>
-            </div>
-        </div>
-
-        <div class="section" style="text-align: center;">
-            <h2>... تواصل معي</h2>
+        <div class="section" style="text-align: center; margin-bottom: 0;">
+            <h2 style="display: inline-block; margin-bottom: 20px;">... تواصل معي</h2>
             <p>يسعدني مشاركتكم الأفكار والخبرات الهندسية.</p>
-            <a href="https://github.com/yourprofile" style="color:var(--primary-color); text-decoration: none; font-weight: bold;">GitHub Profile</a>
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 20px;">
-                <a href="https://www.instagram.com/e.n.g_rs?igsh=b2JmN2xxbGM2MzR5" class="contact-link">Instagram</a>
+            <a href="https://github.com/yourprofile" style="color:var(--primary-color); text-decoration: none; font-weight: bold; font-size: 1.1rem;">GitHub Profile</a>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 25px;">
+                <a href="https://www.instagram.com/e.n.g_rs?igsh=b2JmN2xxbGM2MzR5" class="contact-link" target="_blank">Instagram</a>
                 <a href="mailto:rabeeshalol@gmail.com" class="contact-link">البريد الإلكتروني</a>
             </div>
         </div>
