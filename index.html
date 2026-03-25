@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+شعلولCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
@@ -9,8 +9,8 @@
         :root {
             --primary-color: #00d2ff;
             --secondary-color: #3a7bd5;
-            --green-gradient-start: #4ade80;
-            --green-gradient-end: #22c55e;
+            --green-gradient: linear-gradient(135deg, #4ade80, #22c55e);
+            --blue-gradient: linear-gradient(135deg, #00d2ff, #3a7bd5);
             --glass-bg: rgba(255, 255, 255, 0.08);
             --glass-border: rgba(255, 255, 255, 0.15);
             --text-color: #e0e0e0;
@@ -39,7 +39,7 @@
 
         header {
             text-align: center;
-            padding: 80px 20px 40px;
+            padding: 60px 20px 30px;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -47,30 +47,27 @@
         }
 
         .profile-container {
-            width: 150px;
-            height: 150px;
+            width: 140px;
+            height: 140px;
             border-radius: 50%;
             border: 4px solid #fff;
             overflow: hidden;
-            box-shadow: 0 0 30px rgba(0, 210, 255, 0.6);
-            margin-bottom: 25px;
-            transition: 0.3s ease;
+            box-shadow: 0 0 30px rgba(0, 210, 255, 0.5);
+            margin-bottom: 20px;
         }
-
-        .profile-container:hover { transform: scale(1.05); }
 
         .profile-img { width: 100%; height: 100%; object-fit: cover; }
 
-        h1 { font-size: 3rem; margin: 0; font-weight: 700; }
+        h1 { font-size: 2.8rem; margin: 0; font-weight: 700; }
         .name-highlight {
-            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+            background: var(--blue-gradient);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
         .main-container {
             width: 92%;
-            max-width: 950px;
+            max-width: 900px;
             background: var(--glass-bg);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
@@ -81,28 +78,61 @@
             animation: fadeInUp 1s ease 0.3s backwards;
         }
 
-        .section { margin-bottom: 45px; }
-        .section h2 {
+        .section { margin-bottom: 50px; }
+        
+        /* تنسيق الهدف الوظيفي المستوحى من الصورة */
+        .objective-card {
+            position: relative;
+            text-align: center;
+            padding: 40px 20px;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 20px;
+            overflow: hidden;
+        }
+
+        /* علامات الاقتباس الكبيرة في الخلفية */
+        .objective-card::before, .objective-card::after {
+            content: "“";
+            position: absolute;
+            font-size: 15rem;
+            font-family: serif;
+            color: rgba(0, 210, 255, 0.05);
+            line-height: 1;
+            z-index: 0;
+        }
+        .objective-card::before { top: -20px; right: 20px; }
+        .objective-card::after { bottom: -100px; left: 20px; content: "”"; }
+
+        .obj-title {
+            color: var(--primary-color);
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 25px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .obj-main-text {
             font-size: 1.8rem;
             color: #fff;
-            margin-bottom: 25px;
-            display: flex;
-            align-items: center;
-            gap: 15px;
+            font-weight: 500;
+            line-height: 1.4;
+            margin-bottom: 30px;
+            position: relative;
+            z-index: 1;
         }
 
-        /* تنسيق الشارة الزجاجية للعناوين */
-        .glass-tag {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid var(--glass-border);
-            border-radius: 12px;
-            padding: 5px 10px;
-            font-weight: 700;
+        .obj-sub-text {
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.6);
+            line-height: 1.8;
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
         }
 
-        .section-icon { color: var(--primary-color); }
-
-        /* تنسيق المشاريع (الذي طلبته) */
+        /* تنسيق المشاريع */
         .project-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -110,109 +140,47 @@
         }
 
         .card {
-            background: rgba(255, 255, 255, 0.04);
+            background: rgba(255, 255, 255, 0.03);
             border: 1px solid var(--glass-border);
             border-radius: 18px;
             padding: 25px;
-            transition: all 0.3s ease;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
+            transition: 0.3s;
         }
 
-        .card:hover {
-            transform: translateY(-10px);
-            background: rgba(255, 255, 255, 0.08);
-            border-color: var(--primary-color);
-        }
+        .card:hover { transform: translateY(-10px); border-color: var(--primary-color); }
 
-        .card-header {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-bottom: 15px;
-        }
-
-        .card h3 { color: #fff; margin: 0; flex-grow: 1; text-align: right; }
-
-        .card-description {
-            font-size: 1rem;
-            line-height: 1.6;
-            margin-bottom: 20px;
-            opacity: 0.9;
-        }
-
-        /* تنسيق الأزرار المتدرجة */
         .btn {
-            display: flex;
+            display: inline-flex;
             align-items: center;
             justify-content: center;
-            gap: 10px;
-            padding: 12px 20px;
+            width: 100%;
+            padding: 12px;
             border-radius: 25px;
-            font-weight: 500;
+            color: #fff;
             text-decoration: none;
-            transition: all 0.3s ease;
-            cursor: pointer;
-            border: none;
+            font-weight: 500;
+            margin-top: 15px;
+            transition: 0.3s;
         }
 
-        .btn-blue {
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            color: #fff;
-            box-shadow: 0 5px 15px rgba(0, 210, 255, 0.3);
-        }
+        .btn-blue { background: var(--blue-gradient); }
+        .btn-green { background: var(--green-gradient); }
 
-        .btn-green {
-            background: linear-gradient(135deg, var(--green-gradient-start), var(--green-gradient-end));
-            color: #fff;
-            box-shadow: 0 5px 15px rgba(34, 197, 94, 0.3);
-        }
-
-        .btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-        }
-
-        /* تنسيق قسم التواصل */
-        .contact-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 15px;
-        }
-
+        /* تواصل معي */
         .contact-link {
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 10px;
             padding: 15px;
             background: rgba(255, 255, 255, 0.05);
-            border: 1px solid var(--glass-border);
             border-radius: 12px;
             color: #fff;
             text-decoration: none;
-            transition: 0.3s;
+            margin-top: 10px;
         }
 
-        .contact-link:hover {
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            transform: scale(1.02);
-        }
-
-        .github-link {
-            color: var(--primary-color);
-            text-decoration: none;
-            font-weight: 700;
-            transition: 0.3s;
-        }
-
-        .github-link:hover {
-            text-decoration: underline;
-        }
-
-        @keyframes fadeInDown { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: translateY(0); } }
-        @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes fadeInDown { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; } }
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; } }
 
     </style>
 </head>
@@ -220,74 +188,53 @@
 
     <header>
         <div class="profile-container">
-            <img src="your-image.jpg" alt="المهندس ربيع شلول" class="profile-img">
+            <img src="your-image.jpg" alt="ربيع شلول" class="profile-img">
         </div>
-        <h1><span class="name-highlight">ربيع شعلولan></h1>
-        <p style="font-size: 1.2rem; opacity: 0.8;">مهندس | حلول تقنية مبتكرة</p>
+        <h1><span class="name-highlight">ربيع شعلول</span></h1>
     </header>
 
     <div class="main-container">
         
         <div class="section">
-            <p style="line-height: 1.8;">
-                فعالة واستكشاف التقنيات الناشئة مثل الذكاء الاصطناعي والأنظمة المدمجة والروبوتات وتحليل البيانات.
-                أعمل على تقديم حلول هندسية وتقنية مبتكرة تهدف إلى تحسين الكفاءة والجودة.
-            </p>
-        </div>
-
-        <div class="section">
-            <h2>
-                <span class="glass-tag section-icon">{} معرض المشاريع</span> 
-            </h2>
-            <div class="project-grid">
-                <div class="card">
-                    <div class="card-header">
-                        <h3>كاشف المعادن</h3>
-                        <span style="font-size: 1.5rem;">🔍</span>
-                    </div>
-                    <p class="card-description">مشروع هندسي يحلل الحث الكهرومغناطيسي باستخدام NE555 للكشف الدقيق.</p>
-                    <a href="#" class="btn btn-blue">تحميل التقرير (PDF)</a>
+            <div class="objective-card">
+                <div class="obj-title">الهدف الوظيفي</div>
+                <div class="obj-main-text">
+                    أطمح لأن أصبح مهندس حاسوب متميزاً ذا خبرة واسعة في مجالات متعددة من الحوسبة.
                 </div>
-
-                <div class="card">
-                    <div class="card-header">
-                        <h3>Clap Switch</h3>
-                        <span style="font-size: 1.5rem;">⚡</span>
-                    </div>
-                    <p class="card-description">نظام تحكم صوتي للأتمتة المنزلية يعتمد على المتكاملة CD4017.</p>
-                    <a href="#" class="btn btn-blue">تحميل التقرير (PDF)</a>
-                </div>
-
-                <div class="card">
-                    <div class="card-header">
-                        <h3>OOP برمجة</h3>
-                        <span style="font-size: 1.5rem;">💻</span>
-                    </div>
-                    <p class="card-description">مجموعة خوارزميات وأنظمة تم تطويرها لتعزيز الكفاءة البرمجية.</p>
-                    <a href="#" class="btn btn-green">
-                        <span style="font-size: 1.2rem;">📂</span>
-                        تصفح الأكواد
-                    </a>
+                <div class="obj-sub-text">
+                    وأسعى إلى إكمال مسيرتي الأكاديمية بمهارات عملية قوية تمكنني من العمل بكفاءة في شركات التكنولوجيا الاحترافية، بالإضافة إلى بناء مشاريع مستقلة والمشاركة في تطوير البرمجيات بشكل حر.
                 </div>
             </div>
         </div>
 
         <div class="section">
-            <h2>
-                <span class="glass-tag section-icon">... تواصل معي</span> 
-            </h2>
-            <p style="text-align: center; margin-bottom: 20px;">
-                يسعدني مشاركتكم الأفكار والخبرات الهندسية.
-                <br>
-                <a href="#" class="github-link">GitHub Profile</a>
-            </p>
-            <div class="contact-grid">
-                <a href="https://www.instagram.com/e.n.g_rs?igsh=b2JmN2xxbGM2MzR5" target="_blank" class="contact-link">
-                    Instagram
-                </a>
-                <a href="mailto:rabeeshalol@gmail.com" class="contact-link">
-                    البريد الإلكتروني
-                </a>
+            <h2 style="text-align: center; color: var(--primary-color);">{} معرض المشاريع</h2>
+            <div class="project-grid">
+                <div class="card">
+                    <h3>🔍 كاشف المعادن</h3>
+                    <p>مشروع هندسي يحلل الحث الكهرومغناطيسي باستخدام NE555 للكشف الدقيق.</p>
+                    <a href="#" class="btn btn-blue">تحميل التقرير (PDF)</a>
+                </div>
+                <div class="card">
+                    <h3>⚡ Clap Switch</h3>
+                    <p>نظام تحكم صوتي للأتمتة المنزلية يعتمد على المتكاملة CD4017.</p>
+                    <a href="#" class="btn btn-blue">تحميل التقرير (PDF)</a>
+                </div>
+                <div class="card">
+                    <h3>💻 برمجة OOP</h3>
+                    <p>مجموعة خوارزميات وأنظمة تم تطويرها لتعزيز الكفاءة البرمجية.</p>
+                    <a href="#" class="btn btn-green">تصفح الأكواد 📂</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="section" style="text-align: center;">
+            <h2>... تواصل معي</h2>
+            <p>يسعدني مشاركتكم الأفكار والخبرات الهندسية.</p>
+            <a href="https://github.com/yourprofile" style="color:var(--primary-color); text-decoration: none; font-weight: bold;">GitHub Profile</a>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 20px;">
+                <a href="https://www.instagram.com/e.n.g_rs?igsh=b2JmN2xxbGM2MzR5" class="contact-link">Instagram</a>
+                <a href="mailto:rabeeshalol@gmail.com" class="contact-link">البريد الإلكتروني</a>
             </div>
         </div>
 
